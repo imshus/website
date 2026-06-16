@@ -1,0 +1,522 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Asmara Energy & Technology — From frontier research to global production</title>
+<meta name="description" content="Asmara Energy & Technology is a multi-sector industrialization platform that takes deep tech from prototype to global production." />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Plus+Jakarta+Sans:wght@500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#ffffff;
+    --bg-soft:#F6F8FC;
+    --bg-tint:#FFF5F0;
+    --ink:#0C1626;
+    --ink-2:#394355;
+    --muted:#6A7488;
+    --line:#E9EDF3;
+    --line-2:#DCE2EC;
+    --brand:#F15A29;
+    --brand-2:#FF7E4D;
+    --brand-deep:#CE4317;
+    --navy:#0E1A2B;
+    --navy-2:#172A41;
+    --teal:#0E8E86;
+    --shadow-sm:0 1px 2px rgba(12,22,38,.04),0 2px 6px rgba(12,22,38,.05);
+    --shadow-md:0 6px 16px rgba(12,22,38,.06),0 14px 34px rgba(12,22,38,.09);
+    --shadow-lg:0 24px 60px rgba(12,22,38,.14);
+    --r:16px; --r-sm:12px; --r-lg:22px; --r-pill:999px;
+    --maxw:1200px;
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+  body{
+    margin:0;background:var(--bg);color:var(--ink);
+    font-family:"Inter",system-ui,sans-serif;font-size:16.5px;line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+  }
+  a{color:inherit;text-decoration:none}
+  h1,h2,h3,h4{font-family:"Plus Jakarta Sans",sans-serif;margin:0;letter-spacing:-.02em;line-height:1.1}
+  .wrap{max-width:var(--maxw);margin:0 auto;padding:0 24px}
+  ::selection{background:var(--brand);color:#fff}
+
+  /* buttons */
+  .btn{display:inline-flex;align-items:center;gap:9px;font-family:"Plus Jakarta Sans";font-weight:600;
+    font-size:15px;padding:13px 22px;border-radius:var(--r-sm);cursor:pointer;border:1px solid transparent;
+    transition:transform .16s ease,box-shadow .16s ease,background .16s ease,border-color .16s;white-space:nowrap}
+  .btn svg{width:17px;height:17px}
+  .btn-primary{background:linear-gradient(180deg,var(--brand-2),var(--brand));color:#fff;
+    box-shadow:0 4px 12px rgba(241,90,41,.32),inset 0 1px 0 rgba(255,255,255,.25)}
+  .btn-primary:hover{transform:translateY(-2px);box-shadow:0 8px 20px rgba(241,90,41,.40),inset 0 1px 0 rgba(255,255,255,.25)}
+  .btn-ghost{background:#fff;color:var(--ink);border-color:var(--line-2);box-shadow:var(--shadow-sm)}
+  .btn-ghost:hover{transform:translateY(-2px);box-shadow:var(--shadow-md);border-color:var(--line-2)}
+  .btn-light{background:rgba(255,255,255,.12);color:#fff;border-color:rgba(255,255,255,.22)}
+  .btn-light:hover{background:rgba(255,255,255,.2)}
+  .arr{transition:transform .16s}
+  .btn:hover .arr{transform:translateX(3px)}
+
+  .eyebrow{display:inline-flex;align-items:center;gap:8px;font-family:"Plus Jakarta Sans";font-weight:600;
+    font-size:13px;color:var(--brand-deep);background:var(--bg-tint);border:1px solid #FBD9C9;
+    padding:6px 13px;border-radius:var(--r-pill)}
+  .eyebrow .dot{width:6px;height:6px;border-radius:50%;background:var(--brand)}
+
+  /* header */
+  header{position:sticky;top:0;z-index:60;background:rgba(255,255,255,.78);backdrop-filter:blur(14px);
+    border-bottom:1px solid var(--line)}
+  nav{display:flex;align-items:center;justify-content:space-between;height:56px}
+  .brand{display:flex;align-items:center;gap:11px}
+  .logo{display:block;height:42px;width:auto;object-fit:contain}
+  .logo-foot{height:52px;background:#fff;border-radius:12px;padding:9px 12px;box-shadow:var(--shadow-sm)}
+  .brand .name{font-family:"Plus Jakarta Sans";font-weight:800;font-size:19px;letter-spacing:-.02em;line-height:1}
+  .brand .name small{display:block;font-family:"Inter";font-weight:500;font-size:10.5px;letter-spacing:.14em;
+    color:var(--muted);margin-top:3px;text-transform:uppercase}
+  .navlinks{display:flex;align-items:center;gap:6px}
+  .navlinks a{font-family:"Plus Jakarta Sans";font-weight:600;font-size:14.5px;color:var(--ink-2);
+    padding:9px 14px;border-radius:10px;transition:color .15s,background .15s}
+  .navlinks a:hover{color:var(--ink);background:var(--bg-soft)}
+  .nav-cta{display:flex;align-items:center;gap:12px}
+  .nav-cta .btn{font-size:13.5px;padding:8px 15px}
+  .nav-cta .btn svg{width:15px;height:15px}
+  .burger{display:none;background:none;border:1px solid var(--line-2);border-radius:10px;width:42px;height:42px;cursor:pointer;align-items:center;justify-content:center}
+  .burger span{display:block;width:18px;height:2px;background:var(--ink);border-radius:2px;position:relative}
+  .burger span::before,.burger span::after{content:"";position:absolute;left:0;width:18px;height:2px;background:var(--ink);border-radius:2px}
+  .burger span::before{top:-6px}.burger span::after{top:6px}
+  @media(max-width:920px){
+    .navlinks,.nav-cta .btn-ghost{display:none}
+    .burger{display:flex}
+    .navlinks.open{display:flex;position:absolute;top:56px;left:0;right:0;flex-direction:column;align-items:stretch;
+      gap:2px;background:#fff;border-bottom:1px solid var(--line);padding:12px 16px;box-shadow:var(--shadow-md)}
+  }
+
+  /* hero */
+  .hero{position:relative;overflow:hidden;
+    background:
+      radial-gradient(900px 460px at 78% -8%, rgba(241,90,41,.10), transparent 60%),
+      radial-gradient(700px 420px at 8% 8%, rgba(14,142,134,.07), transparent 55%),
+      linear-gradient(180deg,#FBFCFE,#FFFFFF 60%);}
+  .hero-inner{display:grid;grid-template-columns:1.08fr .92fr;gap:56px;align-items:center;
+    padding:18px 0 26px}
+  .hero h1{font-size:clamp(38px,5.4vw,62px);font-weight:800;letter-spacing:-.03em;margin:22px 0 0}
+  .hero h1 .grad{background:linear-gradient(120deg,var(--brand),#FF9A5B);-webkit-background-clip:text;background-clip:text;color:transparent}
+  .hero p.sub{font-size:19px;color:var(--ink-2);max-width:50ch;margin:22px 0 0;line-height:1.6}
+  .hero-actions{display:flex;gap:14px;margin-top:34px;flex-wrap:wrap}
+  .trust{margin-top:46px}
+  .trust .lbl{font-size:12.5px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+  .trust .row{display:flex;flex-wrap:wrap;gap:10px;margin-top:14px}
+  .trust .chip{font-family:"Plus Jakarta Sans";font-weight:600;font-size:13px;color:var(--ink-2);
+    background:#fff;border:1px solid var(--line);border-radius:var(--r-pill);padding:8px 14px;box-shadow:var(--shadow-sm)}
+
+  /* hero visual: stack panel */
+  .panel{position:relative;background:#fff;border:1px solid var(--line);border-radius:var(--r-lg);
+    box-shadow:var(--shadow-lg);padding:22px;z-index:2}
+  .panel::before{content:"";position:absolute;inset:-26px -26px auto auto;width:200px;height:200px;
+    background:radial-gradient(circle,rgba(241,90,41,.18),transparent 70%);z-index:-1;filter:blur(6px)}
+  .panel-head{display:flex;align-items:center;justify-content:space-between;margin-bottom:16px}
+  .panel-head .t{font-family:"Plus Jakarta Sans";font-weight:700;font-size:15px}
+  .panel-head .t small{display:block;font-family:"Inter";font-weight:400;color:var(--muted);font-size:12px;letter-spacing:0;margin-top:2px}
+  .panel-badge{font-family:"Plus Jakarta Sans";font-weight:600;font-size:11px;color:var(--teal);
+    background:#E6F4F2;border-radius:var(--r-pill);padding:5px 11px}
+  .step{display:flex;align-items:center;gap:13px;padding:11px;border-radius:var(--r-sm);transition:background .16s}
+  .step+.step{margin-top:3px}
+  .step:hover{background:var(--bg-soft)}
+  .step .num{flex:none;width:30px;height:30px;border-radius:9px;display:grid;place-items:center;
+    font-family:"Plus Jakarta Sans";font-weight:700;font-size:13px;color:#fff;
+    background:linear-gradient(180deg,var(--brand-2),var(--brand));box-shadow:0 3px 8px rgba(241,90,41,.28)}
+  .step .num.alt{background:linear-gradient(180deg,#23303F,#16263B);box-shadow:0 3px 8px rgba(14,26,43,.22)}
+  .step .lbl{font-family:"Plus Jakarta Sans";font-weight:600;font-size:14px}
+  .step .lbl small{display:block;font-family:"Inter";font-weight:400;font-size:12px;color:var(--muted);margin-top:1px}
+  .step .line{flex:1}
+  .step .pct{font-family:"Plus Jakarta Sans";font-weight:700;font-size:12.5px;color:var(--ink-2)}
+  @media(max-width:900px){.hero-inner{grid-template-columns:1fr;gap:42px;padding:14px 0 22px}}
+
+  /* stats band */
+  .stats{border-top:1px solid var(--line);border-bottom:1px solid var(--line);background:var(--bg-soft)}
+  .stats-row{display:grid;grid-template-columns:repeat(4,1fr);gap:24px;padding:40px 0}
+  .stat .v{font-family:"Plus Jakarta Sans";font-weight:800;font-size:clamp(30px,4vw,42px);letter-spacing:-.03em;
+    background:linear-gradient(120deg,var(--ink),#2C3A4F);-webkit-background-clip:text;background-clip:text;color:transparent}
+  .stat .v span{color:var(--brand);-webkit-text-fill-color:var(--brand)}
+  .stat .k{font-size:14px;color:var(--muted);margin-top:4px}
+  @media(max-width:760px){.stats-row{grid-template-columns:repeat(2,1fr);gap:28px 20px}}
+
+  /* section shell */
+  section.block{padding:96px 0}
+  .head{max-width:720px;margin:0 auto 56px;text-align:center}
+  .head h2{font-size:clamp(28px,4vw,44px);font-weight:800;letter-spacing:-.03em;margin:16px 0 0}
+  .head p{font-size:18px;color:var(--ink-2);margin:16px 0 0}
+  .head.left{text-align:left;margin-left:0}
+
+  /* feature grid (stack) */
+  .features{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+  .feat{background:#fff;border:1px solid var(--line);border-radius:var(--r);padding:26px;
+    box-shadow:var(--shadow-sm);transition:transform .18s,box-shadow .18s,border-color .18s;position:relative}
+  .feat:hover{transform:translateY(-4px);box-shadow:var(--shadow-md);border-color:#fff}
+  .feat .ico{width:48px;height:48px;border-radius:13px;display:grid;place-items:center;
+    background:linear-gradient(180deg,#FFF1EA,#FFE3D5);color:var(--brand-deep);margin-bottom:18px}
+  .feat .ico svg{width:24px;height:24px}
+  .feat .n{font-family:"Plus Jakarta Sans";font-weight:700;font-size:12px;color:var(--brand);letter-spacing:.06em}
+  .feat h3{font-size:19px;font-weight:700;margin:8px 0 8px}
+  .feat p{font-size:14.5px;color:var(--ink-2);margin:0}
+  @media(max-width:900px){.features{grid-template-columns:1fr 1fr}}
+  @media(max-width:600px){.features{grid-template-columns:1fr}}
+
+  /* sectors */
+  .sectors-band{background:var(--bg-soft)}
+  .chips{display:flex;flex-wrap:wrap;gap:12px;justify-content:center}
+  .chip-s{display:inline-flex;align-items:center;gap:9px;background:#fff;border:1px solid var(--line);
+    border-radius:var(--r-pill);padding:11px 18px;font-family:"Plus Jakarta Sans";font-weight:600;font-size:14.5px;
+    box-shadow:var(--shadow-sm);transition:transform .15s,box-shadow .15s,color .15s}
+  .chip-s:hover{transform:translateY(-2px);box-shadow:var(--shadow-md);color:var(--brand-deep)}
+  .chip-s i{width:7px;height:7px;border-radius:50%;background:var(--brand);display:inline-block}
+
+  /* ventures */
+  .vgrid{display:grid;grid-template-columns:repeat(2,1fr);gap:24px}
+  .vcard{background:#fff;border:1px solid var(--line);border-radius:var(--r-lg);overflow:hidden;
+    box-shadow:var(--shadow-sm);transition:transform .18s,box-shadow .18s;display:flex;flex-direction:column}
+  .vcard:hover{transform:translateY(-5px);box-shadow:var(--shadow-lg)}
+  .vcard .top{height:6px;background:linear-gradient(90deg,var(--brand),#FF9A5B)}
+  .vcard.v2 .top{background:linear-gradient(90deg,#16263B,#3C5A78)}
+  .vcard.v3 .top{background:linear-gradient(90deg,#0E8E86,#34C6B6)}
+  .vcard.v4 .top{background:linear-gradient(90deg,#6C4CC4,#9B7BE0)}
+  .vcard .body{padding:28px;display:flex;flex-direction:column;flex:1}
+  .vcard .row1{display:flex;align-items:center;justify-content:space-between;gap:12px}
+  .vcard .cat{font-family:"Plus Jakarta Sans";font-weight:600;font-size:12px;color:var(--brand-deep);
+    background:var(--bg-tint);border-radius:var(--r-pill);padding:5px 12px}
+  .vcard .vid{font-size:12px;color:var(--muted);font-weight:500}
+  .vcard h3{font-size:23px;font-weight:800;margin:16px 0 2px}
+  .vcard .sub{font-size:13.5px;font-weight:600;color:var(--teal)}
+  .vcard p{font-size:14.5px;color:var(--ink-2);margin:14px 0 20px}
+  .vcard .stats-mini{display:flex;gap:0;border-top:1px solid var(--line);margin-top:auto;padding-top:18px}
+  .vcard .sm{flex:1;border-right:1px solid var(--line)}
+  .vcard .sm:last-child{border-right:0}
+  .vcard .sm b{display:block;font-family:"Plus Jakarta Sans";font-weight:800;font-size:18px;letter-spacing:-.02em}
+  .vcard .sm span{font-size:11.5px;color:var(--muted)}
+  @media(max-width:820px){.vgrid{grid-template-columns:1fr}}
+
+  /* card photo header (ventures with imagery) */
+  .vcard .photo{display:block;width:100%;height:180px;object-fit:cover}
+
+  /* gallery */
+  .gallery{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+  .gtile{position:relative;border-radius:var(--r);overflow:hidden;box-shadow:var(--shadow-sm);
+    aspect-ratio:4/3;background:var(--bg-soft);margin:0}
+  .gtile.wide{grid-column:span 2;aspect-ratio:16/9}
+  .gtile img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .5s ease}
+  .gtile:hover img{transform:scale(1.05)}
+  .gcap{position:absolute;left:0;right:0;bottom:0;margin:0;padding:30px 16px 13px;color:#fff;
+    font-family:"Plus Jakarta Sans";font-weight:600;font-size:14px;
+    background:linear-gradient(to top,rgba(8,14,24,.82),rgba(8,14,24,.30) 60%,transparent)}
+  @media(max-width:900px){.gallery{grid-template-columns:repeat(2,1fr)}.gtile.wide{grid-column:span 2}}
+  @media(max-width:560px){.gallery{grid-template-columns:1fr}.gtile,.gtile.wide{grid-column:span 1;aspect-ratio:4/3}}
+
+  /* uniform venture headers (cards without a photo) */
+  .vcard .vhead{height:180px;display:grid;place-items:center;position:relative;overflow:hidden}
+  .vcard.v1 .vhead{background:linear-gradient(135deg,#FF8A5B,#EC5226)}
+  .vcard.v2 .vhead{background:linear-gradient(135deg,#27394F,#15243A)}
+  .vcard .vhead::after{content:"";position:absolute;inset:0;
+    background:radial-gradient(circle at 78% 22%,rgba(255,255,255,.18),transparent 55%)}
+  .vcard .vhead svg{position:relative;width:56px;height:56px;color:#fff;opacity:.96}
+
+  /* gallery "exhibit" tiles: show full image, no crop */
+  .gtile.fit{border:1px solid var(--line)}
+  .gtile.fit img{object-fit:contain}
+  .gtile.fit:hover img{transform:none}
+
+  /* why us */
+  .why{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:center}
+  .why-list{display:grid;gap:14px}
+  .wrow{display:flex;gap:15px;background:#fff;border:1px solid var(--line);border-radius:var(--r);
+    padding:20px;box-shadow:var(--shadow-sm)}
+  .wrow .ck{flex:none;width:38px;height:38px;border-radius:11px;display:grid;place-items:center;
+    background:#E6F4F2;color:var(--teal)}
+  .wrow .ck svg{width:20px;height:20px}
+  .wrow h4{font-family:"Plus Jakarta Sans";font-weight:700;font-size:16px;margin:0 0 4px}
+  .wrow p{font-size:14px;color:var(--ink-2);margin:0}
+  @media(max-width:820px){.why{grid-template-columns:1fr;gap:36px}}
+
+  /* CTA */
+  .cta-band{padding:30px 0 110px}
+  .cta-card{position:relative;overflow:hidden;border-radius:var(--r-lg);padding:64px 56px;text-align:center;
+    background:
+      radial-gradient(600px 300px at 80% 0%, rgba(241,90,41,.35), transparent 60%),
+      radial-gradient(500px 300px at 10% 100%, rgba(14,142,134,.30), transparent 60%),
+      linear-gradient(160deg,#13233A,#0C1626);
+    box-shadow:var(--shadow-lg)}
+  .cta-card h2{color:#fff;font-size:clamp(28px,4vw,46px);font-weight:800;letter-spacing:-.03em;max-width:18ch;margin:0 auto}
+  .cta-card p{color:rgba(255,255,255,.72);font-size:18px;margin:18px auto 0;max-width:52ch}
+  .cta-card .acts{display:flex;gap:14px;justify-content:center;margin-top:8px;flex-wrap:wrap}
+
+  /* footer */
+  footer{background:#0B1422;color:#9AA6B6;padding:64px 0 30px}
+  .foot{display:grid;grid-template-columns:1.6fr 1fr 1fr 1.2fr;gap:40px;padding-bottom:40px;border-bottom:1px solid rgba(255,255,255,.08)}
+  .foot .brand .name{color:#fff}.foot .brand .name small{color:#7E8A9B}
+  .foot .desc{font-size:14px;margin:16px 0 0;max-width:34ch;color:#8B97A8}
+  .foot h5{font-family:"Plus Jakarta Sans";font-weight:700;font-size:13px;color:#fff;margin:4px 0 16px;letter-spacing:.02em}
+  .foot a{display:block;color:#9AA6B6;font-size:14px;padding:6px 0;transition:color .15s}
+  .foot a:hover{color:var(--brand-2)}
+  .foot-base{display:flex;justify-content:space-between;align-items:center;gap:16px;padding-top:24px;font-size:13px;color:#7E8A9B;flex-wrap:wrap}
+  @media(max-width:820px){.foot{grid-template-columns:1fr 1fr}.foot .brandcol{grid-column:1/-1}}
+
+  .reveal{opacity:0;transform:translateY(20px)}
+  .reveal.in{opacity:1;transform:none;transition:opacity .6s ease,transform .6s ease}
+  @media(prefers-reduced-motion:reduce){.reveal{opacity:1!important;transform:none!important}}
+  :focus-visible{outline:2px solid var(--brand);outline-offset:3px}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap">
+    <nav>
+      <a class="brand" href="#top" aria-label="Asmara home">
+        <img src="assets/logo.png" alt="Asmara Energy &amp; Technology" class="logo" />
+      </a>
+      <div class="navlinks" id="navlinks">
+        <a href="#stack">Platform</a>
+        <a href="#sectors">Sectors</a>
+        <a href="#solutions">Solutions</a>
+        <a href="#gallery">Gallery</a>
+        <a href="#why">Why Asmara</a>
+      </div>
+      <div class="nav-cta">
+        <a class="btn btn-ghost" href="#solutions">Explore</a>
+        <a class="btn btn-primary" href="https://wa.me/917908683359" target="_blank" rel="noopener">Start a venture
+          <svg viewBox="0 0 24 24" fill="none" class="arr"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </a>
+        <button class="burger" id="burger" aria-label="Menu"><span></span></button>
+      </div>
+    </nav>
+  </div>
+</header>
+
+<main id="top">
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="wrap hero-inner">
+      <div>
+        <span class="eyebrow"><span class="dot"></span>Multi-sector industrialization platform</span>
+        <h1>From frontier research to <span class="grad">global production.</span></h1>
+        <p class="sub">Asmara takes deep tech across the gap most companies never cross — running every venture through one end-to-end platform that engineers compliance, market access and support in from day one.</p>
+        <div class="hero-actions">
+          <a class="btn btn-primary" href="https://wa.me/917908683359" target="_blank" rel="noopener">Start a venture
+            <svg viewBox="0 0 24 24" fill="none" class="arr"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </a>
+          <a class="btn btn-ghost" href="#stack">See the platform</a>
+        </div>
+        <div class="trust">
+          <div class="lbl">Building across</div>
+          <div class="row">
+            <span class="chip">Hydrogen &amp; Renewables</span>
+            <span class="chip">Defence</span>
+            <span class="chip">Infrastructure</span>
+            <span class="chip">Health Tech</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="panel" aria-label="The Asmara Stack">
+        <div class="panel-head">
+          <div class="t">The Asmara Stack<small>Prototype → global scale</small></div>
+          <span class="panel-badge">End-to-end</span>
+        </div>
+        <div class="step"><span class="num">1</span><span class="lbl">Product development<small>Research to working design</small></span><span class="line"></span><span class="pct">✓</span></div>
+        <div class="step"><span class="num">2</span><span class="lbl">Industrialization<small>Repeatable production</small></span><span class="line"></span><span class="pct">✓</span></div>
+        <div class="step"><span class="num alt">3</span><span class="lbl">Testing<small>Real operating conditions</small></span><span class="line"></span><span class="pct">✓</span></div>
+        <div class="step"><span class="num alt">4</span><span class="lbl">Compliance<small>Approvals secured early</small></span><span class="line"></span><span class="pct">✓</span></div>
+        <div class="step"><span class="num">5</span><span class="lbl">Commercialization<small>Routes to market</small></span><span class="line"></span><span class="pct">✓</span></div>
+        <div class="step"><span class="num">6</span><span class="lbl">Post-sales support<small>Service &amp; iteration</small></span><span class="line"></span><span class="pct">✓</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- STATS -->
+  <div class="stats">
+    <div class="wrap stats-row">
+      <div class="stat"><div class="v">10<span>+</span></div><div class="k">Sectors served</div></div>
+      <div class="stat"><div class="v">6</div><div class="k">Stage operating framework</div></div>
+      <div class="stat"><div class="v">4</div><div class="k">Active ventures</div></div>
+      <div class="stat"><div class="v">1</div><div class="k">End-to-end platform</div></div>
+    </div>
+  </div>
+
+  <!-- STACK / FEATURES -->
+  <section class="block" id="stack">
+    <div class="wrap">
+      <div class="head">
+        <span class="eyebrow"><span class="dot"></span>The platform</span>
+        <h2>One framework that de-risks scale.</h2>
+        <p>Every venture moves through the same six stages — so an idea becomes a shipped, supported industrial product, not a stranded prototype.</p>
+      </div>
+      <div class="features">
+        <div class="feat reveal"><div class="ico"><svg viewBox="0 0 24 24" fill="none"><path d="M13 2 4 14h6l-1 8 9-12h-6l1-8Z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></svg></div><div class="n">STAGE 01</div><h3>Product development</h3><p>Frontier research becomes a working, testable design — bridging the lab and the factory floor.</p></div>
+        <div class="feat reveal"><div class="ico"><svg viewBox="0 0 24 24" fill="none"><path d="M3 21h18M5 21V9l5 3V9l5 3V6l4 2v13" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></svg></div><div class="n">STAGE 02</div><h3>Industrialization</h3><p>Institutional-grade infrastructure turns prototypes into repeatable, industrial-scale production.</p></div>
+        <div class="feat reveal"><div class="ico"><svg viewBox="0 0 24 24" fill="none"><path d="M9 3h6M10 3v5l-5 9a3 3 0 0 0 3 4h8a3 3 0 0 0 3-4l-5-9V3" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></svg></div><div class="n">STAGE 03</div><h3>Testing</h3><p>Validation under real operating conditions, against the standards each market demands.</p></div>
+        <div class="feat reveal"><div class="ico"><svg viewBox="0 0 24 24" fill="none"><path d="M12 3l8 3v6c0 5-3.5 8-8 9-4.5-1-8-4-8-9V6l8-3Z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/><path d="M9 12l2 2 4-4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></div><div class="n">STAGE 04</div><h3>Compliance &amp; approval</h3><p>Certification and approvals secured early, so launch isn't held hostage by paperwork.</p></div>
+        <div class="feat reveal"><div class="ico"><svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="1.8"/><path d="M3 12h18M12 3c2.5 2.5 2.5 15 0 18M12 3c-2.5 2.5-2.5 15 0 18" stroke="currentColor" stroke-width="1.8"/></svg></div><div class="n">STAGE 05</div><h3>Commercialization</h3><p>Routes to buyers across multiple markets, with import, export and trading handled in-house.</p></div>
+        <div class="feat reveal"><div class="ico"><svg viewBox="0 0 24 24" fill="none"><path d="M4 13a8 8 0 0 1 16 0v4a3 3 0 0 1-3 3h-1v-6h4M4 13v4h3v-4H4Z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></svg></div><div class="n">STAGE 06</div><h3>Post-sales support</h3><p>Service, maintenance and iteration that keep deployed products running and improving.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTORS -->
+  <section class="block sectors-band" id="sectors">
+    <div class="wrap">
+      <div class="head">
+        <span class="eyebrow"><span class="dot"></span>Coverage</span>
+        <h2>Multi-sector by design.</h2>
+        <p>The same path applies whether the product is a hydrogen electrolyzer, a refinery module, a tactical UAV or a connected medical device.</p>
+      </div>
+      <div class="chips">
+        <span class="chip-s"><i></i>Hydrogen &amp; Renewable Energy</span>
+        <span class="chip-s"><i></i>Defence</span>
+        <span class="chip-s"><i></i>Infrastructure &amp; Runways</span>
+        <span class="chip-s"><i></i>Energy &amp; Industrial Projects</span>
+        <span class="chip-s"><i></i>Pharma &amp; Health Tech</span>
+        <span class="chip-s"><i></i>Food Technology</span>
+        <span class="chip-s"><i></i>Agri-allied Businesses</span>
+        <span class="chip-s"><i></i>Water Technology</span>
+        <span class="chip-s"><i></i>Security Systems</span>
+        <span class="chip-s"><i></i>Deep Tech</span>
+        <span class="chip-s"><i></i>Knowledge Services</span>
+        <span class="chip-s"><i></i>Trade &amp; Equipment</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- SOLUTIONS / VENTURES -->
+  <section class="block" id="solutions">
+    <div class="wrap">
+      <div class="head">
+        <span class="eyebrow"><span class="dot"></span>Ventures &amp; products</span>
+        <h2>Real industrial output, shipping today.</h2>
+        <p>A snapshot of enterprises building on the Asmara platform across energy, defence, infrastructure and health.</p>
+      </div>
+      <div class="vgrid">
+        <article class="vcard v1 reveal"><div class="vhead"><svg viewBox="0 0 24 24" fill="none"><circle cx="6" cy="6" r="2.4" stroke="currentColor" stroke-width="1.6"/><circle cx="18" cy="6" r="2.4" stroke="currentColor" stroke-width="1.6"/><circle cx="6" cy="18" r="2.4" stroke="currentColor" stroke-width="1.6"/><circle cx="18" cy="18" r="2.4" stroke="currentColor" stroke-width="1.6"/><rect x="9.4" y="9.4" width="5.2" height="5.2" rx="1.2" stroke="currentColor" stroke-width="1.6"/><path d="M7.7 7.7l1.9 1.9M16.3 7.7l-1.9 1.9M7.7 16.3l1.9-1.9M16.3 16.3l-1.9-1.9" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg></div><div class="body">
+          <div class="row1"><span class="cat">Defence · Deep Tech</span><span class="vid">V—01</span></div>
+          <h3>Vayumandal Innovations</h3><div class="sub">FPV &amp; soccer-drone systems</div>
+          <p>Modular UAV platforms for tactical training, surveillance and operational readiness — with enclosed trainers, FPV quadcopters, arenas and DGCA-certified pilot programs.</p>
+          <div class="stats-mini"><div class="sm"><b>7</b><span>Frame sizes</span></div><div class="sm"><b>15–18m</b><span>Flight time</span></div><div class="sm"><b>2-day</b><span>Pilot camp</span></div></div>
+        </div></article>
+
+        <article class="vcard v2 reveal"><div class="vhead"><svg viewBox="0 0 24 24" fill="none"><path d="M3 21h18M5 21V9l5 3V9l5 3V6l4 2v13" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round" stroke-linecap="round"/></svg></div><div class="body">
+          <div class="row1"><span class="cat">Infrastructure · Energy</span><span class="vid">V—02</span></div>
+          <h3>RBM Infracon</h3><div class="sub">EPC &amp; turnaround · NSE: RBMINFRA</div>
+          <p>Engineering, procurement, construction and turnaround for refineries, petrochemicals, power and green-energy plants — with a heavy-engineering fab shop and onshore drilling.</p>
+          <div class="stats-mini"><div class="sm"><b>₹5,000Cr+</b><span>Order book</span></div><div class="sm"><b>30+</b><span>Turnarounds</span></div><div class="sm"><b>1993</b><span>Since</span></div></div>
+        </div></article>
+
+        <article class="vcard v3 reveal"><img class="photo" src="assets/hydrogen-alkaline-container.jpeg" alt="Alkaline electrolyzer container"><div class="body">
+          <div class="row1"><span class="cat">Renewable Energy</span><span class="vid">V—03</span></div>
+          <h3>Hydrogen Technologies Center</h3><div class="sub">Electrolyzers &amp; hydrogen equipment</div>
+          <p>Full-cycle production of modular electrolyzers, fuel-cell energy-storage systems and hydrogen powertrains — backed by an R&amp;D center and electrolysis testing lines.</p>
+          <div class="stats-mini"><div class="sm"><b>10–100</b><span>nm³/h</span></div><div class="sm"><b>5,835m²</b><span>Facility</span></div><div class="sm"><b>Full-cycle</b><span>Manufacture</span></div></div>
+        </div></article>
+
+        <article class="vcard v4 reveal"><img class="photo" src="assets/abp051-travel.jpeg" alt="ABP-051 wearable device"><div class="body">
+          <div class="row1"><span class="cat">Pharma · Health Tech</span><span class="vid">V—04</span></div>
+          <h3>ABP-051</h3><div class="sub">Wearable blood-pressure aid</div>
+          <p>A wrist-worn device bringing modern sensing to at-home blood-pressure support — a consumer entry point into Asmara's connected, preventive health technology.</p>
+          <div class="stats-mini"><div class="sm"><b>Wearable</b><span>Form factor</span></div><div class="sm"><b>At-home</b><span>Use</span></div><div class="sm"><b>Preventive</b><span>Focus</span></div></div>
+        </div></article>
+      </div>
+    </div>
+  </section>
+
+  <!-- GALLERY -->
+  <section class="block" id="gallery">
+    <div class="wrap">
+      <div class="head">
+        <span class="eyebrow"><span class="dot"></span>From the field</span>
+        <h2>Real hardware, in production.</h2>
+        <p>From hydrogen systems on the factory floor to wearables in everyday life — a look at what the platform actually builds.</p>
+      </div>
+      <div class="gallery">
+        <figure class="gtile"><img src="assets/hydrogen-modular-electrolyzers.jpeg" alt="Modular electrolyzers"><figcaption class="gcap">Modular electrolyzers — various capacities</figcaption></figure>
+        <figure class="gtile"><img src="assets/hydrogen-fuelcell-storage.jpeg" alt="Fuel-cell energy storage"><figcaption class="gcap">Fuel-cell energy storage</figcaption></figure>
+        <figure class="gtile"><img src="assets/hydrogen-rnd-plates.jpeg" alt="R&amp;D bipolar plates"><figcaption class="gcap">R&amp;D bipolar plates</figcaption></figure>
+        <figure class="gtile"><img src="assets/abp051-daily.jpeg" alt="ABP-051 in daily life"><figcaption class="gcap">ABP-051 in daily life</figcaption></figure>
+        <figure class="gtile wide fit" style="background:#FFFFFF"><img src="assets/hydrogen-production-facility.jpeg" alt="Full-cycle production facility"></figure>
+        <figure class="gtile wide fit" style="background:#FFFFFF"><img src="assets/hydrogen-center.jpeg" alt="Hydrogen Technologies Center"></figure>
+        <figure class="gtile wide fit" style="background:#E9F3FB"><img src="assets/abp051-hero.jpeg" alt="ABP-051 wearable blood-pressure aid"></figure>
+        <figure class="gtile wide fit" style="background:#FFFFFF"><img src="assets/abp051-health.jpeg" alt="Designed to improve everyday health"></figure>
+      </div>
+    </div>
+  </section>
+
+  <!-- WHY -->
+  <section class="block sectors-band" id="why">
+    <div class="wrap why">
+      <div>
+        <div class="head left" style="margin-bottom:0">
+          <span class="eyebrow"><span class="dot"></span>Why Asmara</span>
+          <h2>Research and industrial scale, under one roof.</h2>
+          <p>We combine institutional-grade infrastructure with a collaborative co-creation model — closing the gap between a working prototype and a shipped, supported product.</p>
+        </div>
+      </div>
+      <div class="why-list">
+        <div class="wrow reveal"><span class="ck"><svg viewBox="0 0 24 24" fill="none"><path d="M5 13l4 4L19 7" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span><div><h4>Co-creation</h4><p>Startups, corporates, academia and government building together — not in silos.</p></div></div>
+        <div class="wrow reveal"><span class="ck"><svg viewBox="0 0 24 24" fill="none"><path d="M5 13l4 4L19 7" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span><div><h4>Shared infrastructure</h4><p>Institutional-grade production capacity instead of fragile single-site bets.</p></div></div>
+        <div class="wrow reveal"><span class="ck"><svg viewBox="0 0 24 24" fill="none"><path d="M5 13l4 4L19 7" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span><div><h4>End-to-end</h4><p>One framework from prototype through compliance, commercialization and support.</p></div></div>
+        <div class="wrow reveal"><span class="ck"><svg viewBox="0 0 24 24" fill="none"><path d="M5 13l4 4L19 7" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span><div><h4>De-risked at every stage</h4><p>Each step removes a category of risk before the next one begins.</p></div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="cta-band" id="contact">
+    <div class="wrap">
+      <div class="cta-card">
+        <h2>Bring the idea. We'll engineer the industry around it.</h2>
+        <p>Whether you're commercializing frontier research or scaling an existing line, let's talk about entering the Asmara platform.</p>
+        <div class="acts">
+          <a class="btn btn-primary" href="https://wa.me/917908683359" target="_blank" rel="noopener">Start a conversation
+            <svg viewBox="0 0 24 24" fill="none" class="arr"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </a>
+          <a class="btn btn-light" href="#solutions">View solutions</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="foot">
+      <div class="brandcol">
+        <a class="brand" href="#top">
+          <img src="assets/logo.png" alt="Asmara Energy &amp; Technology" class="logo logo-foot" />
+        </a>
+        <p class="desc">A multi-sector industrialization platform carrying frontier energy and deep tech from prototype to global production.</p>
+      </div>
+      <div><h5>Platform</h5>
+        <a href="#stack">The Asmara Stack</a><a href="#sectors">Sectors</a><a href="#solutions">Solutions</a><a href="#why">Why Asmara</a>
+      </div>
+      <div><h5>Ventures</h5>
+        <a href="#solutions">Vayumandal</a><a href="#solutions">RBM Infracon</a><a href="#solutions">Hydrogen Tech</a><a href="#solutions">ABP-051</a>
+      </div>
+      <div><h5>Contact</h5>
+        <a href="mailto:partnerships@asmaraenergytech.com">partnerships@asmaraenergytech.com</a>
+        <a href="https://asmaraenergytech.com">asmaraenergytech.com</a>
+      </div>
+    </div>
+    <div class="foot-base">
+      <span>© 2026 Asmara Energy &amp; Technology Pvt Ltd</span>
+      <span>Built for global scale</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+  const burger=document.getElementById('burger'),links=document.getElementById('navlinks');
+  burger.addEventListener('click',()=>links.classList.toggle('open'));
+  links.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>links.classList.remove('open')));
+  const io=new IntersectionObserver((es)=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}}),{threshold:.12});
+  document.querySelectorAll('.reveal').forEach((el,i)=>{el.style.transitionDelay=(i%3*70)+'ms';io.observe(el);});
+</script>
+</body>
+</html>
